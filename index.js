@@ -2,8 +2,38 @@ const buttons = document.querySelectorAll(".rounded-btn");
 const cards = document.querySelectorAll(".card");
 const fixdiv = document.querySelector(".fixdiv");
 
+// Pehle load par first button ko active karein
+document.addEventListener("DOMContentLoaded", () => {
+  buttons.forEach((btn, i) => {
+    if (i === 0) {
+      btn.classList.add("active"); // First button active ho
+      btn.style.backgroundColor = window.getComputedStyle(
+        cards[0].querySelector(".card-body")
+      ).backgroundColor; // First card ka background color apply karein
+      btn.style.color = "white"; // Text color white rakhein
+    } else {
+      btn.classList.remove("active"); // Baaki buttons inactive ho
+      btn.style.backgroundColor = "#363636"; // Default background color rakhein
+      btn.style.color = "white"; // Default text color rakhein
+    }
+  });
+
+  // Disable observer on load
+  disableObserver = true;
+
+  // Reactivate observer after a delay to avoid triggering during initial load
+  setTimeout(() => {
+    disableObserver = false;
+  }, 100); // 100ms delay to ensure first button is set before observer kicks in
+});
+
+let disableObserver = false; // Flag to disable observer initially
+
+// IntersectionObserver for observing cards
 const observer = new IntersectionObserver(
   (entries) => {
+    if (disableObserver) return; // If observer is disabled, skip the logic
+
     entries.forEach((entry) => {
       const index = Array.from(cards).indexOf(entry.target);
 
@@ -50,12 +80,12 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.5, // 50% visibility required to trigger
+    threshold: 0.99, // 99% visibility required to trigger
     rootMargin: "0px", // Standard margin for smooth detection
   }
 );
 
-// Start observing each card
+// Start observing each card after DOM is ready
 cards.forEach((card) => {
   observer.observe(card);
 });
@@ -68,7 +98,7 @@ const lastCardObserver = new IntersectionObserver(
       const windowHeight = window.innerHeight;
 
       // Fixdiv will remain sticky while the last card is entering viewport
-      if (lastCardTop <= windowHeight && lastCardTop > 0) {
+      if (lastCardTop <= windowHeight && lastCardTop >= 0) {
         fixdiv.style.position = "sticky";
         fixdiv.style.top = "60px";
       }
@@ -87,7 +117,7 @@ const lastCardObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.1, // Last card is entering and exiting the viewport
+    threshold: 0.99, // Last card is entering and exiting the viewport
   }
 );
 

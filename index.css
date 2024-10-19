@@ -103,7 +103,9 @@
   align-items: center;
   transition: transform 0.3s ease, filter 0.3s ease; /* Responsive, faster effect */
 }
-
+li{
+  list-style: none;
+}
 #card1 .card-body {
   background-color: #74fddd;
 }
@@ -130,8 +132,8 @@
   background-color: #7faee7;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Add this line */
+  cursor: all-scroll;
+  transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 .active {
