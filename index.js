@@ -2,19 +2,18 @@ const buttons = document.querySelectorAll(".rounded-btn");
 const cards = document.querySelectorAll(".card");
 const fixdiv = document.querySelector(".fixdiv");
 
-// Pehle load par first button ko active karein
 document.addEventListener("DOMContentLoaded", () => {
   buttons.forEach((btn, i) => {
     if (i === 0) {
-      btn.classList.add("active"); // First button active ho
+      btn.classList.add("active");
       btn.style.backgroundColor = window.getComputedStyle(
         cards[0].querySelector(".card-body")
-      ).backgroundColor; // First card ka background color apply karein
-      btn.style.color = "white"; // Text color white rakhein
+      ).backgroundColor;
+      btn.style.color = "white";
     } else {
-      btn.classList.remove("active"); // Baaki buttons inactive ho
-      btn.style.backgroundColor = "#363636"; // Default background color rakhein
-      btn.style.color = "white"; // Default text color rakhein
+      btn.classList.remove("active");
+      btn.style.backgroundColor = "#363636";
+      btn.style.color = "white";
     }
   });
 

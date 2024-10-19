@@ -87,9 +87,9 @@
 
 .card {
   position: sticky;
-  top: 30vh; /* Sticks right below the "Don't know where to start?" section */
+  top: 30vh; 
   padding-top: 0.5em;
-  transition: transform 0.3s ease, filter 0.3s ease; /* Smooth scaling and blur */
+  transition: transform 0.3s ease, filter 0.3s ease; 
 }
 
 .card-body {
@@ -101,7 +101,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease, filter 0.3s ease; /* Responsive, faster effect */
+  transition: transform 0.3s ease, filter 0.3s ease; 
 }
 li{
   list-style: none;
@@ -141,62 +141,7 @@ li{
   border: none;
 }
 
-/* Cards  */
-/* 
-:root {
-  --cards: 3;
-  --cardHeight: 40vh;
-  --cardTopPadding: 0.5em;
-  --cardMargin: 0.5vw;
-  position: sticky;
-}
 
-.card-container {
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 3vh;
-  perspective: 1000px;
-}
-
-#cards {
-  position: relative;
-  list-style: none;
-  padding-left: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(var(--cards), var(--cardHeight));
-  gap: var(--cardMargin);
-  padding-bottom: calc(var(--cards) * var(--cardTopPadding));
-  margin-bottom: var(--cardMargin);
-}
-
-.card {
-  position: sticky;
-  top: 30vh;
-  padding-top: calc(var(--index) * var(--cardTopPadding));
-}
-
-#card1 .card-body {
-  background-color: #74fddd;
-}
-#card2 .card-body {
-  background-color: #ffa35c;
-}
-#card3 .card-body {
-  background-color: #49e259;
-}
-
-.card-body {
-  box-sizing: border-box;
-  padding: 30px;
-  border-radius: 50px;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
-  height: var(--cardHeight);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.5s;
-} */
 
 h2 {
   font-size: 2.5em;
